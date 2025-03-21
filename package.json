@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/glob": "^8.1.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "glob": "^11.0.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.483.0",
     "next": "15.2.3",
