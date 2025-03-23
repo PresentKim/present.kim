@@ -13,6 +13,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function() {
+  const isDarkMatchMedia = window.matchMedia('(prefers-color-scheme: dark)')
+  function loadColorScheme() {
+    let colorScheme = localStorage.getItem('color-scheme')
+    if (colorScheme !== 'dark' && colorScheme !== 'light') {
+      colorScheme = isDarkMatchMedia.matches ? 'dark' : 'light'
+    }
+    document.documentElement.dataset['theme'] = colorScheme
+  }
+
+  isDarkMatchMedia.addEventListener('change', loadColorScheme)
+  loadColorScheme()
+})()`,
+          }}
+        />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   )
