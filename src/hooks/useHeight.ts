@@ -8,8 +8,9 @@ import {useState, useEffect} from 'react'
  */
 export default function useHeight(
   targetRef: React.RefObject<HTMLElement | null>,
+  defaultHeight = 0,
 ) {
-  const [height, setHeight] = useState(0)
+  const [height, setHeight] = useState(defaultHeight)
 
   useEffect(() => {
     if (!targetRef.current) {

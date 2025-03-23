@@ -9,7 +9,7 @@ export default function FloatingHeader({
   ...props
 }: Omit<React.ComponentProps<'header'>, 'ref'>) {
   const headerRef = useRef<HTMLElement>(null)
-  const height = useHeight(headerRef)
+  const height = useHeight(headerRef, 64)
   const [isVisible, setIsVisible] = useState(true)
   const scrollYRef = useRef(0)
 
