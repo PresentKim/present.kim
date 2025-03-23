@@ -14,5 +14,14 @@
         "parser": "typescript"
       }
     }
-  ]
+  ],
+  "importOrder": [
+    "^(react/(.*)$)|^(react$)",
+    "^(next/(.*)$)|^(next$)",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^[@/]",
+    "^[./]"
+  ],
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
