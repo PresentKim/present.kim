@@ -1,5 +1,7 @@
 import type {Metadata} from 'next'
 import '../config/globals.css'
+import Footer from '@/components/layouts/Footer'
+import Header from '@/components/layouts/Header'
 import {
   siteDomain,
   siteName,
@@ -39,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="ko" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -59,7 +61,11 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }
