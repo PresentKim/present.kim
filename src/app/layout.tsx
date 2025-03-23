@@ -1,5 +1,4 @@
 import type {Metadata} from 'next'
-
 import '../config/globals.css'
 import {
   siteDomain,
