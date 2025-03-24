@@ -8,6 +8,7 @@ import {
   siteName,
   siteDescription,
   siteThumbnail,
+  verifications,
 } from '@/config/metadata'
 
 export const metadata: Metadata = {
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
     images: [{url: siteDomain + siteThumbnail}],
   },
   verification: {
-    google: 'HqrZUQIewwXecddUtTC35Y4fXer5RwH-RDZPx10qjnw',
+    google: verifications.google,
     other: {
-      'naver-site-verification': '1ed210872e2a04db6c5c02ee7a568183db6f2629',
+      'naver-site-verification': verifications.naver,
     },
   },
 }
