@@ -21,7 +21,9 @@ export default function Footer() {
             <Github className="h-6 w-6" />
             <span className="sr-only">GitHub</span>
           </ExternalLink>
-          <ExternalLink href={ownerEmail} className="hover-underline">
+          <ExternalLink
+            href={`mailto:${ownerEmail}`}
+            className="hover-underline">
             <Mail className="h-6 w-6" />
             <span className="sr-only">Email</span>
           </ExternalLink>
