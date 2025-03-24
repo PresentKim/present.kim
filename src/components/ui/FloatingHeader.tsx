@@ -2,7 +2,7 @@
 
 import {useEffect, useState, useRef} from 'react'
 import useHeight from '@/hooks/useHeight'
-import {cn} from '@/utils'
+import {cn} from '@/lib/cn'
 
 export default function FloatingHeader({
   className,

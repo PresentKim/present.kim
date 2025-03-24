@@ -4,7 +4,7 @@ import {
   siteDomain,
   ownerName,
   ownerEmail,
-} from '@/config/metadata'
+} from '@/lib/metadata'
 import {Feed} from 'feed'
 
 export function getFeed() {

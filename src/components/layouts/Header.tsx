@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Logo from '@/components/icon/Logo'
 import FloatingHeader from '@/components/ui/FloatingHeader'
-import {siteName} from '@/config/metadata'
+import {siteName} from '@/lib/metadata'
 
 export default function Header() {
   return (

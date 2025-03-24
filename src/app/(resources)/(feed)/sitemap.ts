@@ -1,5 +1,5 @@
 import {MetadataRoute} from 'next'
-import {siteDomain} from '@/config/metadata'
+import {siteDomain} from '@/lib/metadata'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const links = [
