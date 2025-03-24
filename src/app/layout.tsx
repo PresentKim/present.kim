@@ -54,23 +54,21 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <Script
+        <script
           id="color-scheme-script"
-          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function() {
-    const isDarkMatchMedia = window.matchMedia('(prefers-color-scheme: dark)')
-  function loadColorScheme() {
-    let colorScheme = localStorage.getItem('color-scheme')
-    if (colorScheme !== 'dark' && colorScheme !== 'light') {
-      colorScheme = isDarkMatchMedia.matches ? 'dark' : 'light'
-    }
-    document.documentElement.dataset['theme'] = colorScheme
-  }
-
-  isDarkMatchMedia.addEventListener('change', loadColorScheme)
-  loadColorScheme()
-})()`,
+            isDarkMatchMedia = window.matchMedia('(prefers-color-scheme: dark)')
+            function loadColorScheme() {
+              const colorScheme = localStorage.getItem('color-scheme')
+              if (colorScheme !== 'dark' && colorScheme !== 'light') {
+                colorScheme = isDarkMatchMedia.matches ? 'dark' : 'light'
+              }
+              document.documentElement.dataset['theme'] = colorScheme
+            }
+            isDarkMatchMedia.addEventListener('change', loadColorScheme)
+            loadColorScheme()
+          })()`,
           }}
         />
         <Script
