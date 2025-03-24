@@ -1,4 +1,5 @@
 import type {Metadata} from 'next'
+import Script from 'next/script'
 import '../config/globals.css'
 import Footer from '@/components/layouts/Footer'
 import Header from '@/components/layouts/Header'
@@ -49,10 +50,12 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="color-scheme-script"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `(function() {
-  const isDarkMatchMedia = window.matchMedia('(prefers-color-scheme: dark)')
+    const isDarkMatchMedia = window.matchMedia('(prefers-color-scheme: dark)')
   function loadColorScheme() {
     let colorScheme = localStorage.getItem('color-scheme')
     if (colorScheme !== 'dark' && colorScheme !== 'light') {
