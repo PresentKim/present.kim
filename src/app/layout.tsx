@@ -1,6 +1,6 @@
 import type {Metadata} from 'next'
 import Script from 'next/script'
-import '../config/globals.css'
+import './(resources)/globals.css'
 import Footer from '@/components/layouts/Footer'
 import Header from '@/components/layouts/Header'
 import {
@@ -10,7 +10,7 @@ import {
   siteThumbnail,
   gtag,
   verifications,
-} from '@/config/metadata'
+} from '@/lib/metadata'
 import {Analytics} from '@vercel/analytics/react'
 import {SpeedInsights} from '@vercel/speed-insights/next'
 
