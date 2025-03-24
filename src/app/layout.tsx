@@ -58,9 +58,9 @@ export default function RootLayout({
           id="color-scheme-script"
           dangerouslySetInnerHTML={{
             __html: `(function() {
-            isDarkMatchMedia = window.matchMedia('(prefers-color-scheme: dark)')
+            const isDarkMatchMedia = window.matchMedia('(prefers-color-scheme: dark)')
             function loadColorScheme() {
-              const colorScheme = localStorage.getItem('color-scheme')
+              let colorScheme = localStorage.getItem('color-scheme')
               if (colorScheme !== 'dark' && colorScheme !== 'light') {
                 colorScheme = isDarkMatchMedia.matches ? 'dark' : 'light'
               }
