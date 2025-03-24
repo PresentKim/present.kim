@@ -29,7 +29,7 @@ export default function Footer() {
             <MessageCircle className="h-6 w-6" />
             <span className="sr-only">Discord</span>
           </ExternalLink>
-          <ExternalLink href="/rss.xml" className="hover-underline">
+          <ExternalLink href="/atom.xml" className="hover-underline">
             <Rss className="h-6 w-6" />
             <span className="sr-only">RSS Feed</span>
           </ExternalLink>
