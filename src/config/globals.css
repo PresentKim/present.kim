@@ -121,6 +121,20 @@
   }
 }
 
+@utility hover-underline {
+  & {
+    @apply relative inline-block;
+  }
+  &:after {
+    @apply bg-primary absolute -bottom-1 left-0 h-0.5 w-full content-[''];
+    @apply transition-transform duration-300;
+    @apply origin-bottom-right scale-x-0;
+  }
+  &:hover:after {
+    @apply origin-bottom-left scale-x-100;
+  }
+}
+
 html {
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica,
