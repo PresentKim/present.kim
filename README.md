@@ -49,25 +49,18 @@ Vercel을 통해 배포되며, MDX로 작성된 콘텐츠를 동적으로 렌더
 ./
 ├── content/                   # MDX 콘텐츠
 │   ├── posts/                 # 블로그 포스트 MDX
-│   │   ├── post1/
-│   │   │   └── index.mdx
-│   │   └── post2/
-│   │       ├── index.mdx
-│   │       └── assets/
-│   │           ├── image1.png
-│   │           └── image2.png
+│   │   └── [...slug].mdx
 │   └── projects/              # 프로젝트 MDX
-│       ├── project1/
-│       │   └── index.mdx
-│       └── project2/
-│           ├── index.mdx
-│           └── assets/
-│               ├── image1.png
-│               └── image2.png
-├── public/                    # 정적 자원
+│       └── [...slug].mdx
+├── public/                    # 정적 리소스
 │   ├── assets/                # 추가 정적 파일
-│   │   ├── image1.png
-│   │   └── image2.png
+│   │   ├── posts/             # 블로그 포스트 리소스
+│   │   │   └── [...slug]/
+│   │   │       └── [name].png
+│   │   ├── projects/          # 프로젝트 리소스
+│   │   │   └── [...slug]/
+│   │   │       └── [name].png
+│   │   └── [name].png
 │   └── thumbnail.png          # 웹사이트 섬네일
 ├── src/
 │   ├── app/                   # App Router 라우팅
@@ -97,21 +90,17 @@ Vercel을 통해 배포되며, MDX로 작성된 콘텐츠를 동적으로 렌더
 │   │   └── robots.txt
 │   ├── components/
 │   │   ├── icons/             # 아이콘 컴포넌트
-│   │   │   ├── icon1.tsx
-│   │   │   └── icon2.tsx
+│   │   │   └── [name].tsx
 │   │   ├── layouts/           # 레이아웃 컴포넌트
 │   │   │   ├── Footer.tsx
 │   │   │   └── Header.tsx
 │   │   ├── ui/                # UI 컴포넌트
-│   │   │   ├── component1.tsx
-│   │   │   └── component2.tsx
+│   │   │   └── [name].tsx
 │   ├── hooks/                 # 커스텀 훅
-│   │   ├── useHook1.ts
-│   │   └── useHook2.ts
+│   │   └── [name].ts
 │   ├── lib/                   # 유틸리티 및 설정
 │   │   ├── metadata.ts        # 메타데이터 설정
-│   │   ├── util1.ts
-│   │   └── util2.ts
+│   │   └── [name].ts
 ├── .gitignore                 # Gitignore 설정
 ├── .prettierrc                # Prettier 설정
 ├── components.json            # shadcn/ui 설정
