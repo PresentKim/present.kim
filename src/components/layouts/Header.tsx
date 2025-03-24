@@ -14,14 +14,20 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="hover:text-primary-foreground flex items-center space-x-2 text-xl font-bold">
+            className="hover-underline flex items-center space-x-2 text-xl font-bold">
             <Logo className="size-8" />
             <span className="hidden sm:block">{siteName}</span>
           </Link>
-          <div className="[&>a]:hover:text-primary-foreground space-x-8 font-semibold">
-            <Link href="/">HOME</Link>
-            <Link href="/posts">POSTS</Link>
-            <Link href="/projects">PROJECTS</Link>
+          <div className="space-x-8 font-semibold">
+            <Link href="/" className="hover-underline">
+              HOME
+            </Link>
+            <Link href="/posts" className="hover-underline">
+              POSTS
+            </Link>
+            <Link href="/projects" className="hover-underline">
+              PROJECTS
+            </Link>
           </div>
         </div>
       </nav>
