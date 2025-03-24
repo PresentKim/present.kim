@@ -33,6 +33,12 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [{url: siteDomain + siteThumbnail}],
   },
+  verification: {
+    google: 'HqrZUQIewwXecddUtTC35Y4fXer5RwH-RDZPx10qjnw',
+    other: {
+      'naver-site-verification': '1ed210872e2a04db6c5c02ee7a568183db6f2629',
+    },
+  },
 }
 
 export default function RootLayout({
