@@ -11,6 +11,8 @@ import {
   gtag,
   verifications,
 } from '@/config/metadata'
+import {Analytics} from '@vercel/analytics/react'
+import {SpeedInsights} from '@vercel/speed-insights/next'
 
 export const metadata: Metadata = {
   title: {
@@ -94,6 +96,8 @@ export default function RootLayout({
         <Header />
         <main className="w-full flex-1 p-4">{children}</main>
         <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
