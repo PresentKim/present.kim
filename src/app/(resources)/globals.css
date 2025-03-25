@@ -84,7 +84,7 @@
   --card-foreground: hsl(0, 0%, 100%);
   --popover: hsl(220, 5%, 8%);
   --popover-foreground: hsl(0, 0%, 100%);
-  --primary: hsl(220, 13%, 91%);
+  --primary: hsl(207, 90%, 57%);
   --primary-foreground: hsl(207, 73%, 57%);
   --secondary: hsl(221, 14%, 55%);
   --secondary-foreground: hsl(0, 0%, 100%);
@@ -172,4 +172,56 @@ samp {
     Liberation Mono,
     Courier New,
     monospace;
+}
+
+.prose {
+  h1 {
+    @apply text-3xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl font-bold;
+  }
+
+  h4 {
+    @apply text-lg font-bold;
+  }
+
+  h5 {
+    @apply text-base font-bold;
+  }
+
+  h6 {
+    @apply text-sm font-bold;
+  }
+
+  p {
+    @apply my-4;
+  }
+
+  :not(pre) > code {
+    @apply bg-card text-primary mx-0.5 rounded px-2 py-1 text-xs;
+  }
+
+  img {
+    @apply mx-auto w-full max-w-full;
+  }
+  strong img {
+    @apply w-1/2;
+  }
+  img + em {
+    @apply mx-auto block w-full p-3 text-center text-xs;
+  }
+
+  hr {
+    @apply my-8;
+  }
+
+  a {
+    @apply underline decoration-dashed underline-offset-4;
+  }
 }
