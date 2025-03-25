@@ -1,3 +1,4 @@
+import {getAllPostsFrontmatter} from './posts'
 import {
   siteName,
   siteDescription,
@@ -7,8 +8,8 @@ import {
 } from '@/lib/metadata'
 import {Feed} from 'feed'
 
-export function getFeed() {
-  return new Feed({
+export async function getFeed() {
+  const feed = new Feed({
     title: siteName,
     description: siteDescription,
     id: siteDomain,
@@ -29,4 +30,30 @@ export function getFeed() {
       email: ownerEmail,
     },
   })
+
+  const posts = await getAllPostsFrontmatter()
+
+  posts.forEach(post => {
+    const url = `${siteDomain}/posts/${post.slug}`
+    feed.addItem({
+      title: post.frontmatter.title,
+      id: url,
+      link: url,
+      description: post.frontmatter.description,
+      content: post.frontmatter.description,
+      author: [
+        {
+          name: ownerName.en,
+          email: ownerEmail,
+          link: siteDomain,
+        },
+      ],
+      date: new Date(post.frontmatter.date),
+      ...(post.frontmatter.tags && {
+        category: post.frontmatter.tags.map(tag => ({name: tag})),
+      }),
+    })
+  })
+
+  return feed
 }
