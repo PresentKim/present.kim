@@ -177,6 +177,7 @@ samp {
     Courier New,
     monospace;
   overflow-x: auto;
+  scrollbar-width: thin;
 }
 
 .prose {
