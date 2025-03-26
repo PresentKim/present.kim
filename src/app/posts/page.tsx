@@ -23,6 +23,9 @@ export default async function Posts() {
             key={post.path}
             className="bg-card rounded-lg p-6 shadow transition-shadow hover:shadow-md">
             <Link href={`/posts/${post.path}`} className="block">
+              <h3 className="text-primary mb-2 font-semibold uppercase">
+                {post.category}
+              </h3>
               <h2 className="mb-2 text-2xl font-semibold">
                 {post.frontmatter.title}
               </h2>
@@ -32,19 +35,15 @@ export default async function Posts() {
                 </p>
               )}
               <div className="text-foreground flex items-center text-sm">
-                <time dateTime={post.frontmatter.date}>
-                  {new Date(post.frontmatter.date).toLocaleDateString('ko-KR', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </time>
+                <span className="text-muted">
+                  {post.frontmatter.dateString}
+                </span>
                 {post.frontmatter.tags && (
                   <div className="ml-4 flex gap-2">
                     {post.frontmatter.tags.map(tag => (
                       <span
                         key={tag}
-                        className="bg-card rounded px-2 py-1 text-xs">
+                        className="bg-muted/10 rounded px-2 py-1 text-xs">
                         {tag}
                       </span>
                     ))}

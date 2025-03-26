@@ -43,7 +43,7 @@ export default async function PostPage({params}: PostPageProps) {
 
     return (
       <article className="prose flex w-full flex-col items-center justify-center py-8">
-        <header className="mb-8 max-w-3xl px-4">
+        <header className="mx-auto mb-8 w-full max-w-3xl px-4 @max-md:px-2">
           <h1 className="mb-4 text-4xl font-bold">{post.frontmatter.title}</h1>
           {post.frontmatter.description && (
             <p className="mb-4 text-xl text-gray-600">
@@ -51,13 +51,7 @@ export default async function PostPage({params}: PostPageProps) {
             </p>
           )}
           <div className="flex items-center text-sm">
-            <time dateTime={post.frontmatter.date} className="text-muted">
-              {new Date(post.frontmatter.date).toLocaleDateString('ko-KR', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </time>
+            <span className="text-muted">{post.frontmatter.dateString}</span>
             {post.frontmatter.tags && (
               <div className="text-primary ml-4 flex gap-2">
                 {post.frontmatter.tags.map(tag => (
