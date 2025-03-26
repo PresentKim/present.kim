@@ -263,6 +263,15 @@ samp {
     @apply bg-chart-4/8;
   }
 
+  table {
+    @apply my-2 block w-full border-collapse overflow-x-auto;
+
+    th,
+    td {
+      @apply border-border border px-2 py-1;
+    }
+  }
+
   img {
     @apply mx-auto w-full max-w-full;
   }
