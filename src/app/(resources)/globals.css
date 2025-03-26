@@ -290,4 +290,11 @@ samp {
   ul {
     @apply my-4 list-inside list-disc;
   }
+
+  mrow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    width: fit-content;
+  }
 }
