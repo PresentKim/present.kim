@@ -1,12 +1,14 @@
 import {type CompileOptions} from '@mdx-js/mdx'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeCodeTitles from 'rehype-code-titles'
+import rehypeKatex from 'rehype-katex'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
 
 export const mdxOptions: CompileOptions = {
-  remarkPlugins: [remarkGfm],
+  remarkPlugins: [remarkGfm, remarkMath],
   rehypePlugins: [
     rehypeSlug,
     [
@@ -24,6 +26,7 @@ export const mdxOptions: CompileOptions = {
         theme: 'github-dark-dimmed',
       },
     ],
+    rehypeKatex,
   ],
   format: 'mdx',
 }
