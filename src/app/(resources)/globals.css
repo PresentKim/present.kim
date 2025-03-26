@@ -213,6 +213,56 @@ samp {
     @apply bg-card text-primary mx-0.5 rounded px-2 py-1 text-xs;
   }
 
+  figure:has(pre) {
+    @apply relative;
+  }
+
+  pre {
+    @apply text-primary my-2 rounded;
+  }
+
+  pre code {
+    @apply pb-1;
+  }
+
+  pre code span {
+    @apply px-1;
+  }
+
+  figcaption[data-rehype-pretty-code-title] {
+    @apply absolute top-0 left-0 z-10;
+    @apply bg-card text-card-foreground px-2 py-1;
+    @apply text-sm;
+    @apply content-[attr(data-language)];
+    @apply rounded-tl rounded-br;
+  }
+
+  figcaption[data-rehype-pretty-code-title] + pre:before {
+    @apply content-[''];
+  }
+
+  figcaption[data-rehype-pretty-code-title] + pre,
+  pre[data-language] {
+    @apply relative pt-8;
+  }
+
+  figcaption[data-rehype-pretty-code-title] + pre {
+    @apply my-4;
+  }
+
+  pre[data-language]::before {
+    @apply absolute top-0 left-0;
+    @apply bg-card text-card-foreground px-2 py-1;
+    @apply text-sm uppercase;
+    @apply content-[attr(data-language)];
+    @apply rounded-tl rounded-br;
+  }
+
+  pre span mark,
+  pre span[data-highlighted-line] {
+    @apply bg-chart-4/8;
+  }
+
   img {
     @apply mx-auto w-full max-w-full;
   }
