@@ -17,21 +17,21 @@ tags: [백준, 알고리즘]
 
 첫째 줄에 A×B를 출력한다.
 
-:::boj-input 예제 입력 1
+```text title="예제 입력 1"
 1 2
-:::
+```
 
-:::boj-output 예제 출력 1
+```text title="예제 출력 1
 2
-:::
+```
 
-:::boj-input 예제 입력 2
+```text title="예제 입력 2
 3 4
-:::
+```
 
-:::boj-output 예제 출력 2
+```text title="예제 출력 2
 12
-:::
+```
 
 ## 알고리즘 분류
 
@@ -45,17 +45,11 @@ tags: [백준, 알고리즘]
 
 한줄로 입력된 두 숫자를 구하고 결과를 출력한다
 
-:::boj-code PHP
-
 ```php
 <?
 fscanf(STDIN, "%d %d", $a, $b);
 echo $a * $b;
 ```
-
-:::
-
-:::boj-code CPP
 
 ```cpp
 #include <iostream>
@@ -69,37 +63,24 @@ int main(){
 }
 ```
 
-:::
-
-:::boj-code JavaScript
-
-```JavaScript
+```javascript
 const fs = require('fs');
 const inputData = fs.readFileSync(0, 'utf8').toString().split(' ');
-const a = parseInt(inputData[0]), b = parseInt(inputData[1]);
+const a = parseInt(inputData[0]),
+  b = parseInt(inputData[1]);
 console.log(a * b);
 ```
-
-:::
 
 ## 숏코딩 풀이
 
 `fscanf`는 결과를 할당할 변수를 인자로 넣어주지 않으면, 모든 결과를 배열로 반환한다
 
-:::boj-code PHP
-
 ```php
 <? echo array_product(fscanf(STDIN, "%d%d"));
 ```
 
-:::
-
 주어진 숫자가 한자리수인 점을 이용 해 입력을 문자열로 처리하면 더 짧게 처리가 가능하다.
-
-:::boj-code PHP
 
 ```php
 <?=($_=fgets(STDIN))[0]*$_[2];
 ```
-
-:::
