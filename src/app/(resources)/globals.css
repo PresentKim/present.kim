@@ -229,4 +229,9 @@ samp {
   a {
     @apply underline decoration-dashed underline-offset-4;
   }
+
+  ol,
+  ul {
+    @apply my-4 list-inside list-disc;
+  }
 }
