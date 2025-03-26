@@ -69,7 +69,7 @@ export default async function PostPage({params}: PostPageProps) {
             )}
           </div>
         </header>
-        <div className="mb-8 max-w-3xl px-4">
+        <div className="mx-auto mb-8 w-full max-w-3xl px-4 @max-md:px-2">
           <MDXContent {...post} />
         </div>
       </article>
