@@ -221,12 +221,8 @@ samp {
     @apply text-primary my-2 rounded;
   }
 
-  pre code {
-    @apply pb-1;
-  }
-
-  pre code span {
-    @apply px-1;
+  pre code span[data-line] {
+    @apply px-2;
   }
 
   figcaption[data-rehype-pretty-code-title] {
