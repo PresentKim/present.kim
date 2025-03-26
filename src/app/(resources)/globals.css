@@ -176,6 +176,7 @@ samp {
     Liberation Mono,
     Courier New,
     monospace;
+  overflow-x: auto;
 }
 
 .prose {
