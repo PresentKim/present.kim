@@ -42,8 +42,8 @@ export default async function PostPage({params}: PostPageProps) {
     const post = await getPostDetail(slug)
 
     return (
-      <article className="prose container mx-auto px-4 py-8">
-        <header className="mb-8">
+      <article className="prose flex w-full flex-col items-center justify-center py-8">
+        <header className="mb-8 max-w-3xl px-4">
           <h1 className="mb-4 text-4xl font-bold">{post.frontmatter.title}</h1>
           {post.frontmatter.description && (
             <p className="mb-4 text-xl text-gray-600">
@@ -69,7 +69,7 @@ export default async function PostPage({params}: PostPageProps) {
             )}
           </div>
         </header>
-        <div className="prose prose-lg max-w-none">
+        <div className="mb-8 max-w-3xl px-4">
           <MDXContent {...post} />
         </div>
       </article>
