@@ -1,4 +1,5 @@
 import {Post, PostFrontmatter, PostInfo} from '@/types/post'
+import dayjs from 'dayjs'
 import {readFileSync} from 'fs'
 import {glob} from 'glob'
 import matter from 'gray-matter'
@@ -23,7 +24,10 @@ export async function getPostList(): Promise<PostInfo[]> {
         path: `${category}/${slug}`,
         category,
         slug,
-        frontmatter: frontmatter as PostFrontmatter,
+        frontmatter: {
+          ...frontmatter,
+          dateString: dayjs(frontmatter.date).format('YYYY-MM-DD HH:mm'),
+        } as PostFrontmatter,
       }
     })
     .filter(post => !post.frontmatter.draft)

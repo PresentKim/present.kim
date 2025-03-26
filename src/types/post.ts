@@ -2,6 +2,7 @@ export interface PostFrontmatter {
   title: string
   description?: string
   date: string
+  dateString: string
   tags?: string[]
   draft?: boolean
   [key: string]: string | string[] | boolean | undefined
