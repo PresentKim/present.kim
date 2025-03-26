@@ -2,7 +2,7 @@
 
 import type {Metadata} from 'next'
 import Link from 'next/link'
-import {getAllPostsFrontmatter} from '@/lib/posts'
+import {getPostList} from '@/lib/content/posts'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -12,7 +12,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Posts() {
-  const posts = await getAllPostsFrontmatter()
+  const posts = await getPostList()
 
   return (
     <div className="container mx-auto px-4 py-8">

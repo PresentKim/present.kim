@@ -3,7 +3,7 @@
 import type {Metadata} from 'next'
 import {notFound} from 'next/navigation'
 import {MDXContent} from '@/components/mdx/MDXContent'
-import {getAllPostSlugs, getPost} from '@/lib/posts'
+import {getAllPostSlugs, getPostDetail} from '@/lib/content/posts'
 
 interface PostPageProps {
   params: Promise<{
@@ -23,7 +23,7 @@ export async function generateMetadata({
 }: PostPageProps): Promise<Metadata> {
   const slug = (await params).slug.join('/')
   try {
-    const post = await getPost(slug)
+    const post = await getPostDetail(slug)
     return {
       title: post.frontmatter.title,
       description: post.frontmatter.description,
@@ -39,7 +39,7 @@ export default async function PostPage({params}: PostPageProps) {
   const slug = (await params).slug.join('/')
 
   try {
-    const post = await getPost(slug)
+    const post = await getPostDetail(slug)
 
     return (
       <article className="prose container mx-auto px-4 py-8">

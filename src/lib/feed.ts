@@ -1,4 +1,4 @@
-import {getAllPostsFrontmatter} from './posts'
+import {getPostList} from './content/posts'
 import {
   siteName,
   siteDescription,
@@ -31,7 +31,7 @@ export async function getFeed() {
     },
   })
 
-  const posts = await getAllPostsFrontmatter()
+  const posts = await getPostList()
 
   posts.forEach(post => {
     const url = `${siteDomain}/posts/${post.slug}`

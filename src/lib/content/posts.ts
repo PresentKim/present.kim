@@ -7,9 +7,9 @@ import path from 'path'
 const POSTS_PATH = path.join(process.cwd(), 'content/posts')
 
 /**
- * 모든 포스트의 frontmatter만 가져오기
+ * Get post list (frontmatter only)
  */
-export async function getAllPostsFrontmatter(): Promise<PostInfo[]> {
+export async function getPostList(): Promise<PostInfo[]> {
   const postPaths = await glob('**/*.mdx', {cwd: POSTS_PATH})
 
   return postPaths
@@ -35,9 +35,9 @@ export async function getAllPostsFrontmatter(): Promise<PostInfo[]> {
 }
 
 /**
- * 특정 포스트의 전체 내용 가져오기 (frontmatter + rendered content)
+ * Get post detail (frontmatter + rendered content)
  */
-export async function getPost(slug: string): Promise<Post> {
+export async function getPostDetail(slug: string): Promise<Post> {
   const postPath = path.join(POSTS_PATH, slug)
   const source = readFileSync(postPath, 'utf8')
   const {data: frontmatter, content} = matter(source)
@@ -52,9 +52,9 @@ export async function getPost(slug: string): Promise<Post> {
 }
 
 /**
- * 모든 포스트 슬러그 가져오기
+ * Get all post slugs
  */
 export async function getAllPostSlugs(): Promise<string[]> {
-  const postPaths = await glob('**/index.mdx', {cwd: POSTS_PATH})
-  return postPaths.map(path => path.replace('/index.mdx', ''))
+  const postPaths = await glob('**/*.mdx', {cwd: POSTS_PATH})
+  return postPaths.map(path => path.replace(/\.mdx$/, ''))
 }
