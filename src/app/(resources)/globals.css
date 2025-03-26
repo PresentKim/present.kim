@@ -158,6 +158,10 @@ a:not(:disabled) {
   cursor: pointer;
 }
 
+[aria-hidden='true'] {
+  display: none;
+}
+
 pre,
 code,
 kbd,
