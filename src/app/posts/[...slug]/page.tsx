@@ -3,6 +3,7 @@
 import type {Metadata} from 'next'
 import {notFound} from 'next/navigation'
 import {MDXContent} from '@/components/mdx/MDXContent'
+import PostViewCount from '@/components/ui/PostViewCount'
 import {getAllPostSlugs, getPostDetail} from '@/lib/content/posts'
 
 interface PostPageProps {
@@ -51,6 +52,9 @@ export default async function PostPage({params}: PostPageProps) {
             </p>
           )}
           <div className="flex items-center text-sm">
+            <div className="text-muted mr-4 flex items-center gap-2">
+              <PostViewCount slug={slug} /> views
+            </div>
             <span className="text-muted">{post.frontmatter.dateString}</span>
             {post.frontmatter.tags && (
               <div className="text-primary ml-4 flex gap-2">
