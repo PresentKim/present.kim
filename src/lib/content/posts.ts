@@ -7,6 +7,15 @@ import path from 'path'
 
 const POSTS_PATH = path.join(process.cwd(), 'content/posts')
 
+function processFrontmatter(frontmatter: {
+  [key: string]: string
+}): PostFrontmatter {
+  return {
+    ...frontmatter,
+    dateString: dayjs(frontmatter.date as string).format('YYYY-MM-DD HH:mm'),
+  } as PostFrontmatter
+}
+
 /**
  * Get post list (frontmatter only)
  */
@@ -24,10 +33,7 @@ export async function getPostList(): Promise<PostInfo[]> {
         path: `${category}/${slug}`,
         category,
         slug,
-        frontmatter: {
-          ...frontmatter,
-          dateString: dayjs(frontmatter.date).format('YYYY-MM-DD HH:mm'),
-        } as PostFrontmatter,
+        frontmatter: processFrontmatter(frontmatter),
       }
     })
     .filter(post => !post.frontmatter.draft)
@@ -50,7 +56,7 @@ export async function getPostDetail(slug: string): Promise<Post> {
     path: slug,
     category: path.dirname(slug),
     slug: path.basename(slug),
-    frontmatter: frontmatter as PostFrontmatter,
+    frontmatter: processFrontmatter(frontmatter),
     content,
   }
 }
