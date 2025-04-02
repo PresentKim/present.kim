@@ -26,6 +26,8 @@ export async function getPostList(): Promise<PostInfo[]> {
         slug,
         frontmatter: {
           ...frontmatter,
+          thumbnail:
+            frontmatter.thumbnail || `/assets/posts/${category}/thumbnail.png`,
           dateString: dayjs(frontmatter.date).format('YYYY-MM-DD HH:mm'),
         } as PostFrontmatter,
       }
