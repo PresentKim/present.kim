@@ -15,9 +15,9 @@ export default async function Posts() {
   const posts = await getPostList()
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-8 text-4xl font-bold">블로그 포스트</h1>
-      <div className="grid gap-6">
+    <section aria-label="posts" className="container mx-auto max-w-4xl">
+      <h2 className="mb-4 ml-4 text-2xl font-semibold">블로그 포스트</h2>
+      <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map(post => (
           <article
             key={post.path}
@@ -54,6 +54,6 @@ export default async function Posts() {
           </article>
         ))}
       </div>
-    </div>
+    </section>
   )
 }

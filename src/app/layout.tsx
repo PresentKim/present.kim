@@ -92,7 +92,9 @@ export default function RootLayout({
       </head>
       <body className="flex max-w-full flex-col">
         <Header />
-        <main className="w-full flex-1 p-4">{children}</main>
+        <main className="flex flex-1 flex-col items-center justify-between p-4">
+          {children}
+        </main>
         <Footer />
         <Analytics />
         <SpeedInsights />
