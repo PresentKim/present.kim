@@ -1,3 +1,5 @@
+'use server'
+
 import {Post, PostFrontmatter, PostInfo} from '@/types/post'
 import dayjs from 'dayjs'
 import {readFileSync} from 'fs'
@@ -28,7 +30,7 @@ export async function getPostList(): Promise<PostInfo[]> {
           ...frontmatter,
           thumbnail:
             frontmatter.thumbnail || `/assets/posts/${category}/thumbnail.png`,
-          dateString: dayjs(frontmatter.date).format('YYYY-MM-DD HH:mm'),
+          dateString: dayjs(frontmatter.date).format('YYYY-MM-DD'),
         } as PostFrontmatter,
       }
     })

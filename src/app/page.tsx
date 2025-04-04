@@ -21,7 +21,7 @@ export default async function Home() {
             category={post.category}
             title={post.frontmatter.title}
             description={post.frontmatter.description || ''}
-            date={post.frontmatter.date}
+            date={post.frontmatter.dateString}
             slug={post.path}
             thumbnail={post.frontmatter.thumbnail}
           />

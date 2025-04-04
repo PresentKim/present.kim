@@ -1,7 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import {cn} from '@/lib/cn'
-import dayjs from 'dayjs'
 import {Calendar, Eye} from 'lucide-react'
 
 interface PostCardProps extends React.ComponentProps<'a'> {
@@ -50,7 +51,7 @@ export function PostCard({
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
               <Calendar className="size-4" />
-              <time dateTime={date}>{dayjs(date).format('YYYY-MM-DD')}</time>
+              <span>{date}</span>
             </div>
             {viewCount !== undefined && (
               <div className="flex items-center gap-1">
