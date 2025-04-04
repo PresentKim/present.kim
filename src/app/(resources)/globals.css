@@ -288,7 +288,11 @@ samp {
 
   ol,
   ul {
-    @apply my-4 list-inside list-disc;
+    @apply my-4 list-inside list-disc [ol_&]:ml-4 [ul_&]:ml-4;
+  }
+
+  blockquote {
+    @apply border-border my-4 border-l-2 pl-4 italic;
   }
 
   mrow {
