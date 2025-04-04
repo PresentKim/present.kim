@@ -23,7 +23,7 @@ export const mdxOptions: CompileOptions = {
     [
       rehypePrettyCode,
       {
-        theme: 'github-dark-dimmed',
+        theme: 'one-light',
       },
     ],
     rehypeKatex,

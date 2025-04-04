@@ -41,10 +41,10 @@ export function PostCard({
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
         <h2 className="line-clamp-2 text-lg font-semibold">{title}</h2>
-        <p className="line-clamp-2 flex-1 text-sm text-gray-600 dark:text-gray-400">
+        <p className="text-muted-foreground line-clamp-2 flex-1 text-sm">
           {description}
         </p>
-        <div className="flex items-center justify-between gap-4 text-xs text-gray-500 dark:text-gray-500">
+        <div className="text-muted-foreground flex items-center justify-between gap-4 text-xs">
           <span className="bg-card rounded-xs px-2 py-1 uppercase">
             {category}
           </span>

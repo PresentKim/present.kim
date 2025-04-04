@@ -54,23 +54,6 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <head>
-        <script
-          id="color-scheme-script"
-          dangerouslySetInnerHTML={{
-            __html: `(function() {
-            const isDarkMatchMedia = window.matchMedia('(prefers-color-scheme: dark)')
-            function loadColorScheme() {
-              let colorScheme = localStorage.getItem('color-scheme')
-              if (colorScheme !== 'dark' && colorScheme !== 'light') {
-                colorScheme = isDarkMatchMedia.matches ? 'dark' : 'light'
-              }
-              document.documentElement.dataset['theme'] = colorScheme
-            }
-            isDarkMatchMedia.addEventListener('change', loadColorScheme)
-            loadColorScheme()
-          })()`,
-          }}
-        />
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_TRACKING_ID}`}
