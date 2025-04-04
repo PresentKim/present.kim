@@ -180,6 +180,14 @@ samp {
   scrollbar-width: thin;
 }
 
+html::selection {
+  @apply bg-black/20;
+}
+
+html[data-theme='dark']::selection {
+  @apply bg-white/20;
+}
+
 .prose {
   h1 {
     @apply text-3xl font-bold;
