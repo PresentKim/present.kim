@@ -30,7 +30,7 @@ export function PostCard({
       href={`/posts/${slug}`}
       className={cn('group flex flex-col overflow-hidden', className)}
       {...props}>
-      <div className="border-card relative aspect-[2/1] w-full overflow-hidden rounded-lg border transition-all hover:shadow-md">
+      <div className="border-card relative aspect-[5/2] w-full overflow-hidden rounded-lg border transition-all hover:shadow-md">
         <Image
           src={thumbnail}
           alt={title}
