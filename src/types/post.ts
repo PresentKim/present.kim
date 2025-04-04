@@ -4,6 +4,7 @@ export interface PostFrontmatter {
   date: string
   dateString: string
   tags?: string[]
+  thumbnail: string
   draft?: boolean
   [key: string]: string | string[] | boolean | undefined
 }

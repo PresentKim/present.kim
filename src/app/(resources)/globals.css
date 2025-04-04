@@ -180,6 +180,14 @@ samp {
   scrollbar-width: thin;
 }
 
+html::selection {
+  @apply bg-black/20;
+}
+
+html[data-theme='dark']::selection {
+  @apply bg-white/20;
+}
+
 .prose {
   h1 {
     @apply text-3xl font-bold;
@@ -227,7 +235,7 @@ samp {
 
   figcaption[data-rehype-pretty-code-title] {
     @apply absolute top-0 left-0 z-10;
-    @apply bg-card text-card-foreground px-2 py-1;
+    @apply bg-neutral-700 px-2 py-1 text-neutral-200;
     @apply text-sm;
     @apply content-[attr(data-language)];
     @apply rounded-tl rounded-br;
@@ -248,7 +256,7 @@ samp {
 
   pre[data-language]::before {
     @apply absolute top-0 left-0;
-    @apply bg-card text-card-foreground px-2 py-1;
+    @apply bg-neutral-700 px-2 py-1 text-neutral-200;
     @apply text-sm uppercase;
     @apply content-[attr(data-language)];
     @apply rounded-tl rounded-br;
@@ -288,7 +296,11 @@ samp {
 
   ol,
   ul {
-    @apply my-4 list-inside list-disc;
+    @apply my-4 list-inside list-disc [ol_&]:ml-4 [ul_&]:ml-4;
+  }
+
+  blockquote {
+    @apply border-border my-4 border-l-2 pl-4 italic;
   }
 
   mrow {

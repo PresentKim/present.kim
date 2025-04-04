@@ -1,5 +1,5 @@
 ---
-title: '🏅 프로그래머스 42893 : 매칭 점수 - Javascript'
+title: '프로그래머스 42893 : 매칭 점수 - Javascript'
 summary: '프로그래머스 42893 : 매칭 점수  문제를 Javascript로 풀이한 내용입니다.'
 date: 2023-03-01 23:48:00
 tags: [알고리즘, 프로그래머스]
@@ -21,7 +21,7 @@ tags: [알고리즘, 프로그래머스]
 
 예를 들어, 다음과 같이 A, B, C 세 개의 웹페이지가 있고, 검색어가 hi라고 하자.
 
-**![example img](/assets/posts/programmers/42893/example.jpg)**
+**![example img](/assets/posts/ps/programmers/42893/example.jpg)**
 
 이때 A 웹페이지의 매칭점수는 다음과 같이 계산할 수 있다.
 
@@ -307,9 +307,7 @@ const basePoint = body
 다른 분들은 저처럼 정규식을 잘 모르면서 정규식을 맹신하는 일이 없길 바랍니다...
 이걸 몰라서 코드의 온갖 부분을 다 갈아 엎고 난리 쳤어요ㅠㅠ
 
-:::info 최종 코드
-
-```javascript
+```javascript title="JAVASCRIPT: 최종 코드"
 const parsePage = (page, index, word) => {
   //페이지의 주소와 외부 링크는 정규식을 통해 찾을 수 있다
   const url = page.match(/<meta property="og:url" content="(.+?)"/i)[1];
@@ -362,5 +360,3 @@ function solution(word, pages) {
     .index;
 }
 ```
-
-:::

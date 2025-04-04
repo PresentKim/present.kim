@@ -1,13 +1,13 @@
 ---
-title: '🏅 백준 10998 : A×B (C++, PHP, Javascript)'
-summary: '백준 10998 : A×B 문제를 C++, PHP, Javascript로 풀이한 내용입니다.'
-date: 2022-11-04 13:18:00
+title: '백준 1001 : A-B (C++, PHP, Javascript)'
+summary: '백준 1001 : A-B 문제를 C++, PHP, Javascript로 풀이한 내용입니다.'
+date: 2022-11-04 13:14:00
 tags: [백준, 알고리즘]
 ---
 
 ## 문제
 
-두 정수 A와 B를 입력받은 다음, A×B를 출력하는 프로그램을 작성하시오.
+두 정수 A와 B를 입력받은 다음, A-B를 출력하는 프로그램을 작성하시오.
 
 ## 입력
 
@@ -15,22 +15,14 @@ tags: [백준, 알고리즘]
 
 ## 출력
 
-첫째 줄에 A×B를 출력한다.
+첫째 줄에 A-B를 출력한다.
 
-```text title="예제 입력 1"
-1 2
+```text title="예제 입력"
+3 2
 ```
 
-```text title="예제 출력 1
-2
-```
-
-```text title="예제 입력 2
-3 4
-```
-
-```text title="예제 출력 2
-12
+```text title="예제 출력"
+1
 ```
 
 ## 알고리즘 분류
@@ -48,7 +40,7 @@ tags: [백준, 알고리즘]
 ```php
 <?
 fscanf(STDIN, "%d %d", $a, $b);
-echo $a * $b;
+echo $a - $b;
 ```
 
 ```cpp
@@ -58,7 +50,7 @@ using namespace std;
 int main(){
     int a, b;
     cin >> a >> b;
-    cout << a * b;
+    cout << a - b;
     return 0;
 }
 ```
@@ -68,19 +60,13 @@ const fs = require('fs');
 const inputData = fs.readFileSync(0, 'utf8').toString().split(' ');
 const a = parseInt(inputData[0]),
   b = parseInt(inputData[1]);
-console.log(a * b);
+console.log(a - b);
 ```
 
 ## 숏코딩 풀이
 
-`fscanf`는 결과를 할당할 변수를 인자로 넣어주지 않으면, 모든 결과를 배열로 반환한다
-
-```php
-<? echo array_product(fscanf(STDIN, "%d%d"));
-```
-
 주어진 숫자가 한자리수인 점을 이용 해 입력을 문자열로 처리하면 더 짧게 처리가 가능하다.
 
 ```php
-<?=($_=fgets(STDIN))[0]*$_[2];
+<?=($_=fgets(STDIN))[0]-$_[2];
 ```

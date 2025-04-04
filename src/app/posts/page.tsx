@@ -1,8 +1,10 @@
 'use server'
 
 import type {Metadata} from 'next'
-import Link from 'next/link'
-import {getPostList} from '@/lib/content/posts'
+import {PostCard} from '@/components/PostCard'
+import {CategorySelect} from '@/components/CategorySelect'
+import {getCategoryList} from '@/lib/content/categories'
+import {getPostList, getPostCountByCategory} from '@/lib/content/posts'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -13,47 +15,29 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Posts() {
   const posts = await getPostList()
+  const categories = await getCategoryList()
+  const postCounts = await getPostCountByCategory()
+
+  const activeCategories = categories.filter(({category}) => postCounts[category] > 0)
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-8 text-4xl font-bold">블로그 포스트</h1>
-      <div className="grid gap-6">
+    <section aria-label="posts" className="container mx-auto max-w-4xl">
+      <h2 className="mb-4 ml-4 text-2xl font-semibold">블로그 포스트</h2>
+      <CategorySelect categories={activeCategories} />
+
+      <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map(post => (
-          <article
+          <PostCard
             key={post.path}
-            className="bg-card rounded-lg p-6 shadow transition-shadow hover:shadow-md">
-            <Link href={`/posts/${post.path}`} className="block">
-              <h3 className="text-primary mb-2 font-semibold uppercase">
-                {post.category}
-              </h3>
-              <h2 className="mb-2 text-2xl font-semibold">
-                {post.frontmatter.title}
-              </h2>
-              {post.frontmatter.description && (
-                <p className="text-foreground mb-4">
-                  {post.frontmatter.description}
-                </p>
-              )}
-              <div className="text-foreground flex items-center text-sm">
-                <span className="text-muted">
-                  {post.frontmatter.dateString}
-                </span>
-                {post.frontmatter.tags && (
-                  <div className="ml-4 flex gap-2">
-                    {post.frontmatter.tags.map(tag => (
-                      <span
-                        key={tag}
-                        className="bg-muted/10 rounded px-2 py-1 text-xs">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </Link>
-          </article>
+            category={post.category}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description || ''}
+            date={post.frontmatter.dateString}
+            slug={post.path}
+            thumbnail={post.frontmatter.thumbnail}
+          />
         ))}
       </div>
-    </div>
+    </section>
   )
 }
