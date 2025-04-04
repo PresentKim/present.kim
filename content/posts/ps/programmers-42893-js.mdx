@@ -307,9 +307,7 @@ const basePoint = body
 다른 분들은 저처럼 정규식을 잘 모르면서 정규식을 맹신하는 일이 없길 바랍니다...
 이걸 몰라서 코드의 온갖 부분을 다 갈아 엎고 난리 쳤어요ㅠㅠ
 
-:::info 최종 코드
-
-```javascript
+```javascript title="JAVASCRIPT: 최종 코드"
 const parsePage = (page, index, word) => {
   //페이지의 주소와 외부 링크는 정규식을 통해 찾을 수 있다
   const url = page.match(/<meta property="og:url" content="(.+?)"/i)[1];
@@ -362,5 +360,3 @@ function solution(word, pages) {
     .index;
 }
 ```
-
-:::
