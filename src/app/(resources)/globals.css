@@ -235,7 +235,7 @@ html[data-theme='dark']::selection {
 
   figcaption[data-rehype-pretty-code-title] {
     @apply absolute top-0 left-0 z-10;
-    @apply bg-card text-card-foreground px-2 py-1;
+    @apply bg-neutral-700 px-2 py-1 text-neutral-200;
     @apply text-sm;
     @apply content-[attr(data-language)];
     @apply rounded-tl rounded-br;
@@ -256,7 +256,7 @@ html[data-theme='dark']::selection {
 
   pre[data-language]::before {
     @apply absolute top-0 left-0;
-    @apply bg-card text-card-foreground px-2 py-1;
+    @apply bg-neutral-700 px-2 py-1 text-neutral-200;
     @apply text-sm uppercase;
     @apply content-[attr(data-language)];
     @apply rounded-tl rounded-br;
