@@ -50,9 +50,7 @@ export function PostCard({
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1">
               <Calendar className="size-4" />
-              <time dateTime={date}>
-                {dayjs(date).format('YYYY년 M월 D일')}
-              </time>
+              <time dateTime={date}>{dayjs(date).format('YYYY-MM-DD')}</time>
             </div>
             {viewCount !== undefined && (
               <div className="flex items-center gap-1">
