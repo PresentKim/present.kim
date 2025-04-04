@@ -12,7 +12,7 @@ const POSTS_PATH = path.join(process.cwd(), 'content/posts')
 /**
  * Get post list (frontmatter only)
  */
-export async function getPostList(): Promise<PostInfo[]> {
+export async function getPostList(category?: string): Promise<PostInfo[]> {
   const postPaths = await glob('**/*.mdx', {cwd: POSTS_PATH})
 
   return postPaths
@@ -24,7 +24,7 @@ export async function getPostList(): Promise<PostInfo[]> {
 
       return {
         path: `${category}/${slug}`,
-        category,
+        category: category,
         slug,
         frontmatter: {
           ...frontmatter,
@@ -35,6 +35,7 @@ export async function getPostList(): Promise<PostInfo[]> {
       }
     })
     .filter(post => !post.frontmatter.draft)
+    .filter(post => !category || post.category === category)
     .sort(
       (a, b) =>
         new Date(b.frontmatter.date).getTime() -
@@ -65,4 +66,24 @@ export async function getPostDetail(slug: string): Promise<Post> {
 export async function getAllPostSlugs(): Promise<string[]> {
   const postPaths = await glob('**/*.mdx', {cwd: POSTS_PATH})
   return postPaths.map(path => path.replace(/\.mdx$/, ''))
+}
+
+/**
+ * Get post count by category
+ */
+export async function getPostCountByCategory(): Promise<Record<string, number>> {
+  const postPaths = await glob('**/*.mdx', {cwd: POSTS_PATH})
+  const counts: Record<string, number> = {}
+
+  postPaths.forEach(postPath => {
+    const category = path.dirname(postPath)
+    const source = readFileSync(path.join(POSTS_PATH, postPath), 'utf8')
+    const {data: frontmatter} = matter(source)
+
+    if (!frontmatter.draft) {
+      counts[category] = (counts[category] || 0) + 1
+    }
+  })
+
+  return counts
 }
