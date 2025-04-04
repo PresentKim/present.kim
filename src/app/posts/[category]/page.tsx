@@ -8,13 +8,13 @@ import {getCategoryInfo, getCategoryList} from '@/lib/content/categories'
 import {getPostList, getPostCountByCategory} from '@/lib/content/posts'
 
 interface Props {
-  params: {
+  params: Promise<{
     category: string
-  }
+  }>
 }
 
 export async function generateMetadata({params}: Props): Promise<Metadata> {
-  const categoryInfo = await getCategoryInfo(params.category)
+  const categoryInfo = await getCategoryInfo((await params).category)
   if (!categoryInfo) {
     notFound()
   }
@@ -26,12 +26,13 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 }
 
 export default async function CategoryPosts({params}: Props) {
-  const categoryInfo = await getCategoryInfo(params.category)
+  const {category} = await params
+  const categoryInfo = await getCategoryInfo(category)
   if (!categoryInfo) {
     notFound()
   }
 
-  const posts = await getPostList(params.category)
+  const posts = await getPostList(category)
   if (posts.length === 0) {
     notFound()
   }
@@ -49,7 +50,7 @@ export default async function CategoryPosts({params}: Props) {
       </h2>
       <CategorySelect
         categories={activeCategories}
-        currentCategory={params.category}
+        currentCategory={category}
       />
 
       <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
