@@ -45,9 +45,6 @@ export default async function CategoryPosts({params}: Props) {
 
   return (
     <section aria-label="posts" className="container mx-auto max-w-4xl">
-      <h2 className="mb-4 ml-4 text-2xl font-semibold">
-        {categoryInfo.title} 포스트
-      </h2>
       <CategorySelect
         categories={activeCategories}
         currentCategory={category}
