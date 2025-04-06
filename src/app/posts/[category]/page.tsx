@@ -3,7 +3,7 @@
 import type {Metadata} from 'next'
 import {notFound} from 'next/navigation'
 import {CategorySelect} from '@/components/CategorySelect'
-import {PostCard} from '@/components/PostCard'
+import {PostList} from '@/components/PostList'
 import {getCategoryInfo, getCategoryList} from '@/lib/content/categories'
 import {getPostList, getPostCountByCategory} from '@/lib/content/posts'
 
@@ -53,19 +53,7 @@ export default async function CategoryPosts({params}: Props) {
         currentCategory={category}
       />
 
-      <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map(post => (
-          <PostCard
-            key={post.path}
-            category={post.category}
-            title={post.frontmatter.title}
-            description={post.frontmatter.description || ''}
-            date={post.frontmatter.dateString}
-            slug={post.path}
-            thumbnail={post.frontmatter.thumbnail}
-          />
-        ))}
-      </div>
+      <PostList posts={posts} />
     </section>
   )
 }
