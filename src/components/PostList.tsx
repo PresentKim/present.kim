@@ -10,12 +10,7 @@ interface PostListProps extends React.ComponentProps<'div'> {
 
 export function PostList({posts, className, ...props}: PostListProps) {
   return (
-    <div
-      className={cn(
-        'grid grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:grid-cols-3',
-        className,
-      )}
-      {...props}>
+    <div className={cn('flex flex-col gap-8', className)} {...props}>
       {posts.map(post => (
         <PostCard
           key={post.path}
