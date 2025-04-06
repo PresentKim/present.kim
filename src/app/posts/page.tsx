@@ -24,7 +24,6 @@ export default async function Posts() {
 
   return (
     <section aria-label="posts" className="container mx-auto max-w-4xl">
-      <h2 className="mb-4 ml-4 text-2xl font-semibold">블로그 포스트</h2>
       <CategorySelect categories={activeCategories} />
       <PostList posts={posts} />
     </section>
