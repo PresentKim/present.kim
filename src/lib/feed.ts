@@ -39,8 +39,8 @@ export async function getFeed() {
       title: post.frontmatter.title,
       id: url,
       link: url,
-      description: post.frontmatter.description,
-      content: post.frontmatter.description,
+      description: post.frontmatter.summary,
+      content: post.frontmatter.summary,
       author: [
         {
           name: ownerName.en,

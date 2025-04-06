@@ -1,6 +1,6 @@
 export interface PostFrontmatter {
   title: string
-  description?: string
+  summary?: string
   date: string
   dateString: string
   tags?: string[]

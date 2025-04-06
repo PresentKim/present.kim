@@ -7,7 +7,7 @@ import {Calendar, Eye} from 'lucide-react'
 
 interface PostCardProps extends React.ComponentProps<'a'> {
   title: string
-  description: string
+  summary: string
   date: string
   slug: string
   category: string
@@ -42,7 +42,7 @@ export function PostCard({
       <div className="flex flex-1 flex-col gap-2 p-4">
         <h2 className="line-clamp-2 text-lg font-semibold">{title}</h2>
         <p className="text-muted-foreground line-clamp-2 flex-1 text-sm">
-          {description}
+          {summary}
         </p>
         <div className="text-muted-foreground flex items-center justify-between gap-4 text-xs">
           <span className="bg-card rounded-xs px-2 py-1 uppercase">

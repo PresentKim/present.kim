@@ -27,7 +27,7 @@ export async function generateMetadata({
     const post = await getPostDetail(slug)
     return {
       title: post.frontmatter.title,
-      description: post.frontmatter.description,
+      description: post.frontmatter.summary,
     }
   } catch {
     return {
@@ -46,9 +46,9 @@ export default async function PostPage({params}: PostPageProps) {
       <article className="prose flex w-full flex-col items-center justify-center py-8">
         <header className="mx-auto mb-8 w-full max-w-3xl px-4 @max-md:px-2">
           <h1 className="mb-4 text-4xl font-bold">{post.frontmatter.title}</h1>
-          {post.frontmatter.description && (
+          {post.frontmatter.summary && (
             <p className="mb-4 text-xl text-gray-600">
-              {post.frontmatter.description}
+              {post.frontmatter.summary}
             </p>
           )}
           <div className="flex items-center text-sm">

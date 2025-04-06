@@ -21,7 +21,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 
   return {
     title: `${categoryInfo.title} - 블로그`,
-    description: categoryInfo.description,
+    summary: categoryInfo.description,
   }
 }
 

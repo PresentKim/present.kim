@@ -4,7 +4,7 @@ import {getPostList} from '@/lib/content/posts'
 import {PostInfo} from '@/types/post'
 
 export const metadata: Metadata = {
-  description: '프로그래밍을 좋아하는 개발자 김현재의 포트폴리오',
+  summary: '프로그래밍을 좋아하는 개발자 김현재의 포트폴리오',
 }
 
 export default async function Home() {
@@ -20,7 +20,7 @@ export default async function Home() {
             key={post.path}
             category={post.category}
             title={post.frontmatter.title}
-            description={post.frontmatter.description || ''}
+            summary={post.frontmatter.summary || ''}
             date={post.frontmatter.dateString}
             slug={post.path}
             thumbnail={post.frontmatter.thumbnail}

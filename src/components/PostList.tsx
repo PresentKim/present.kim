@@ -21,7 +21,7 @@ export function PostList({posts, className, ...props}: PostListProps) {
           key={post.path}
           category={post.category}
           title={post.frontmatter.title}
-          description={post.frontmatter.description || ''}
+          summary={post.frontmatter.summary || ''}
           date={post.frontmatter.dateString}
           slug={post.path}
           thumbnail={post.frontmatter.thumbnail}
