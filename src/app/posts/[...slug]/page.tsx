@@ -62,15 +62,17 @@ export default async function PostPage({params}: PostPageProps) {
         <header className="mx-auto mb-8 w-full max-w-3xl px-4 @max-md:px-2">
           <h1 className="mb-4 text-4xl font-bold">{post.frontmatter.title}</h1>
           {post.frontmatter.summary && (
-            <p className="mb-4 text-xl text-gray-600">
+            <p className="text-muted-foreground mb-4 text-xl">
               {post.frontmatter.summary}
             </p>
           )}
           <div className="flex items-center text-sm">
-            <div className="text-muted mr-4 flex items-center gap-2">
+            <div className="text-muted-foreground mr-4 flex items-center gap-2">
               <PostViewCount slug={slug} /> views
             </div>
-            <span className="text-muted">{post.frontmatter.dateString}</span>
+            <span className="text-muted-foreground">
+              {post.frontmatter.dateString}
+            </span>
             {post.frontmatter.tags && (
               <div className="text-primary ml-4 flex gap-2">
                 {post.frontmatter.tags.map(tag => (
