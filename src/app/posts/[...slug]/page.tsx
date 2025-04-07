@@ -3,8 +3,10 @@
 import type {Metadata} from 'next'
 import Image from 'next/image'
 import {notFound} from 'next/navigation'
+import Giscus from '@giscus/react'
 import {Calendar, Eye} from 'lucide-react'
 import {MDXContent} from '@/components/mdx/MDXContent'
+import Comment from '@/components/ui/Comment'
 import PostViewCount from '@/components/ui/PostViewCount'
 import {getAllPostSlugs, getPostDetail} from '@/lib/content/posts'
 import {siteDomain} from '@/lib/metadata'
@@ -97,6 +99,9 @@ export default async function PostPage({params}: PostPageProps) {
         </header>
         <div className="mx-auto mb-8 w-full max-w-3xl px-4 @max-md:px-2">
           <MDXContent {...post} />
+        </div>
+        <div className="mx-auto mb-8 w-full max-w-3xl px-4 @max-md:px-2">
+          <Comment />
         </div>
       </article>
     )
