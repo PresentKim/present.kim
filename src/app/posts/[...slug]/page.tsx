@@ -27,7 +27,7 @@ export async function generateMetadata({
     const post = await getPostDetail(slug)
     return {
       title: post.frontmatter.title,
-      description: post.frontmatter.summary,
+      summary: post.frontmatter.summary,
     }
   } catch {
     return {
