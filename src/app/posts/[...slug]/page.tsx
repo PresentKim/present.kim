@@ -5,6 +5,7 @@ import {notFound} from 'next/navigation'
 import {MDXContent} from '@/components/mdx/MDXContent'
 import PostViewCount from '@/components/ui/PostViewCount'
 import {getAllPostSlugs, getPostDetail} from '@/lib/content/posts'
+import {siteDomain, siteName} from '@/lib/metadata'
 
 interface PostPageProps {
   params: Promise<{
@@ -28,6 +29,20 @@ export async function generateMetadata({
     return {
       title: post.frontmatter.title,
       summary: post.frontmatter.summary,
+      openGraph: {
+        images: [
+          {
+            url: siteDomain + post.frontmatter.thumbnail,
+          },
+        ],
+      },
+      twitter: {
+        images: [
+          {
+            url: siteDomain + post.frontmatter.thumbnail,
+          },
+        ],
+      },
     }
   } catch {
     return {

@@ -5,11 +5,26 @@ import {CategorySelect} from '@/components/CategorySelect'
 import {PostList} from '@/components/PostList'
 import {getCategoryList} from '@/lib/content/categories'
 import {getPostList, getPostCountByCategory} from '@/lib/content/posts'
+import {siteDomain} from '@/lib/metadata'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: '블로그',
     summary: '프로그래밍을 좋아하는 개발자 김현재의 포스트 목록',
+    openGraph: {
+      images: [
+        {
+          url: siteDomain + '/assets/posts/blog/thumbnail.png',
+        },
+      ],
+    },
+    twitter: {
+      images: [
+        {
+          url: siteDomain + '/assets/posts/blog/thumbnail.png',
+        },
+      ],
+    },
   }
 }
 

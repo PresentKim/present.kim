@@ -6,6 +6,7 @@ import {CategorySelect} from '@/components/CategorySelect'
 import {PostList} from '@/components/PostList'
 import {getCategoryInfo, getCategoryList} from '@/lib/content/categories'
 import {getPostList, getPostCountByCategory} from '@/lib/content/posts'
+import {siteDomain} from '@/lib/metadata'
 
 interface Props {
   params: Promise<{
@@ -22,6 +23,20 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   return {
     title: `${categoryInfo.title} - 블로그`,
     summary: categoryInfo.description,
+    openGraph: {
+      images: [
+        {
+          url: siteDomain + categoryInfo.thumbnail,
+        },
+      ],
+    },
+    twitter: {
+      images: [
+        {
+          url: siteDomain + categoryInfo.thumbnail,
+        },
+      ],
+    },
   }
 }
 
