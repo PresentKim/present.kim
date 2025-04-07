@@ -56,15 +56,16 @@ export async function getPostList(category?: string): Promise<PostInfo[]> {
  * Get post detail (frontmatter + rendered content)
  */
 export async function getPostDetail(slug: string): Promise<Post> {
-  const category = path.dirname(slug)
-  const postPath = path.join(POSTS_PATH, slug + '.mdx')
+  const decodedSlug = decodeURIComponent(slug)
+  const category = path.dirname(decodedSlug)
+  const postPath = path.join(POSTS_PATH, decodedSlug + '.mdx')
   const source = readFileSync(postPath, 'utf8')
   const {data: frontmatter, content} = matter(source)
 
   return {
-    path: slug,
+    path: decodedSlug,
     category,
-    slug: path.basename(slug),
+    slug: path.basename(decodedSlug),
     frontmatter: processFrontmatter(category, frontmatter),
     content,
   }
