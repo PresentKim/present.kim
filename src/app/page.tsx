@@ -3,7 +3,7 @@ import {PostList} from '@/components/PostList'
 import {getPostList} from '@/lib/content/posts'
 
 export const metadata: Metadata = {
-  summary: '프로그래밍을 좋아하는 개발자 김현재의 포트폴리오',
+  description: '프로그래밍을 좋아하는 개발자 김현재의 포트폴리오',
 }
 
 export default async function Home() {

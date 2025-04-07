@@ -22,7 +22,7 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
 
   return {
     title: `${categoryInfo.title} - 블로그`,
-    summary: categoryInfo.description,
+    description: categoryInfo.description,
     openGraph: {
       images: [
         {

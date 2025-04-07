@@ -10,7 +10,7 @@ import {siteDomain} from '@/lib/metadata'
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: '블로그',
-    summary: '프로그래밍을 좋아하는 개발자 김현재의 포스트 목록',
+    description: '프로그래밍을 좋아하는 개발자 김현재의 포스트 목록',
     openGraph: {
       images: [
         {
