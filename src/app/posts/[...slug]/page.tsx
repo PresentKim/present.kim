@@ -5,7 +5,7 @@ import {notFound} from 'next/navigation'
 import {MDXContent} from '@/components/mdx/MDXContent'
 import PostViewCount from '@/components/ui/PostViewCount'
 import {getAllPostSlugs, getPostDetail} from '@/lib/content/posts'
-import {siteDomain, siteName} from '@/lib/metadata'
+import {siteDomain} from '@/lib/metadata'
 
 interface PostPageProps {
   params: Promise<{
