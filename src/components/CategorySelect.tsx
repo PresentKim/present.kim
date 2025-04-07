@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import type {CategoryInfo} from '@/lib/content/categories'
 import clsx from 'clsx'
+import type {CategoryInfo} from '@/lib/content/categories'
 
 interface Props {
   categories: CategoryInfo[]

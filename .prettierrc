@@ -19,9 +19,8 @@
     "^(react/(.*)$)|^(react$)",
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
-    "",
-    "^[@/]",
-    "^[./]"
+    "^@/",
+    "^./"
   ],
   "plugins": [
     "@trivago/prettier-plugin-sort-imports",

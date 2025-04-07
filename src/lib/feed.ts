@@ -1,4 +1,4 @@
-import {getPostList} from './content/posts'
+import {Feed} from 'feed'
 import {
   siteName,
   siteDescription,
@@ -6,7 +6,7 @@ import {
   ownerName,
   ownerEmail,
 } from '@/lib/metadata'
-import {Feed} from 'feed'
+import {getPostList} from './content/posts'
 
 export async function getFeed() {
   const feed = new Feed({

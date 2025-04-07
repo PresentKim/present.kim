@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import {cn} from '@/lib/cn'
 import {Calendar, Eye} from 'lucide-react'
+import {cn} from '@/lib/cn'
 
 interface PostCardProps extends React.ComponentProps<'a'> {
   title: string

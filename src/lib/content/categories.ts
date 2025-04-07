@@ -24,7 +24,9 @@ export async function getCategoryList(): Promise<CategoryInfo[]> {
     .sort((a, b) => a.title.localeCompare(b.title))
 }
 
-export async function getCategoryInfo(category: string): Promise<CategoryInfo | null> {
+export async function getCategoryInfo(
+  category: string,
+): Promise<CategoryInfo | null> {
   try {
     const source = readFileSync(
       path.join(POSTS_PATH, category, '.category-info.json'),

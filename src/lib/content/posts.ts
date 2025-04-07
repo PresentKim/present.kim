@@ -1,11 +1,11 @@
 'use server'
 
-import {Post, PostFrontmatter, PostInfo} from '@/types/post'
 import dayjs from 'dayjs'
 import {readFileSync} from 'fs'
 import {glob} from 'glob'
 import matter from 'gray-matter'
 import path from 'path'
+import {Post, PostFrontmatter, PostInfo} from '@/types/post'
 
 const POSTS_PATH = path.join(process.cwd(), 'content/posts')
 

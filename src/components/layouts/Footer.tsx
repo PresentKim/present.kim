@@ -1,8 +1,8 @@
 'use client'
 
+import {Github, Mail, MessageCircle, Rss} from 'lucide-react'
 import ExternalLink from '@/components/ui/ExternalLink'
 import {ownerName, ownerGithub, ownerEmail, ownerDiscord} from '@/lib/metadata'
-import {Github, Mail, MessageCircle, Rss} from 'lucide-react'
 
 export default function Footer() {
   return (

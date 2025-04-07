@@ -1,6 +1,7 @@
 import type {Metadata} from 'next'
 import Script from 'next/script'
-import './(resources)/globals.css'
+import {Analytics} from '@vercel/analytics/react'
+import {SpeedInsights} from '@vercel/speed-insights/next'
 import Footer from '@/components/layouts/Footer'
 import Header from '@/components/layouts/Header'
 import {
@@ -11,8 +12,7 @@ import {
   gtag,
   verifications,
 } from '@/lib/metadata'
-import {Analytics} from '@vercel/analytics/react'
-import {SpeedInsights} from '@vercel/speed-insights/next'
+import './(resources)/globals.css'
 
 export const metadata: Metadata = {
   title: {
