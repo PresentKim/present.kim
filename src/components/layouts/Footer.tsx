@@ -6,9 +6,9 @@ import {Github, Mail, MessageCircle, Rss} from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-card text-muted w-full py-4 md:py-8">
+    <footer className="bg-card/50 text-muted-foreground w-full py-4 md:py-8">
       <div className="mx-auto flex max-w-4xl flex-col items-center justify-between space-y-4 px-4 md:flex-row md:space-y-0">
-        <div className="text-muted">
+        <div>
           © {new Date().getFullYear()}. {ownerName.en} all rights reserved.
         </div>
         <div className="flex space-x-6">
