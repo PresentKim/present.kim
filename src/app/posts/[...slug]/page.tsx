@@ -63,7 +63,7 @@ export default async function PostPage({params}: PostPageProps) {
 
     return (
       <article className="prose flex w-full flex-col items-center justify-center py-8">
-        <header className="relative mx-auto mb-8 w-full max-w-3xl overflow-hidden rounded-lg">
+        <header className="relative mx-auto mb-8 w-full max-w-3xl overflow-hidden rounded-sm">
           <div
             aria-label="Post Header Background"
             className="absolute inset-0 -z-10 h-full w-full">
@@ -78,7 +78,7 @@ export default async function PostPage({params}: PostPageProps) {
           </div>
           <div
             aria-label="Post Header Foreground"
-            className="h-full w-full bg-black/30 px-4 py-8 backdrop-blur-xs @max-md:px-2">
+            className="h-full w-full bg-black/50 px-4 py-8 backdrop-blur-xs @max-md:px-2">
             <h1 className="text-shadow-xl mb-4 text-center text-3xl font-bold text-white text-shadow-gray-900/30">
               {post.frontmatter.title}
             </h1>
