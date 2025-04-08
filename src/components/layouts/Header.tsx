@@ -21,9 +21,6 @@ export default function Header() {
             <span className="hidden sm:block">{siteName}</span>
           </Link>
           <div className="space-x-8 font-semibold">
-            <Link href="/" className="hover-underline">
-              HOME
-            </Link>
             <Link href="/posts" className="hover-underline">
               POSTS
             </Link>
