@@ -3,7 +3,6 @@
 import type {Metadata} from 'next'
 import Image from 'next/image'
 import {notFound} from 'next/navigation'
-import Giscus from '@giscus/react'
 import {Calendar, Eye} from 'lucide-react'
 import {MDXContent} from '@/components/mdx/MDXContent'
 import Comment from '@/components/ui/Comment'
