@@ -30,8 +30,7 @@ export function PostCard({
     <Link
       href={`/posts/${slug}`}
       className={cn(
-        'group flex overflow-hidden rounded-lg bg-white',
-        'shadow-sm transition-shadow hover:shadow-md',
+        'group flex items-center overflow-hidden rounded-lg bg-white',
         className,
       )}
       {...props}>
