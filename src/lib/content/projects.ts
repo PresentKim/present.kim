@@ -35,8 +35,6 @@ export interface ProjectFrontmatter {
 
 export interface ProjectInfo {
   path: string
-  category: string
-  slug: string
   frontmatter: ProjectFrontmatter
 }
 
@@ -47,27 +45,21 @@ export interface Project extends ProjectInfo {
 /**
  * Get project list (frontmatter only)
  */
-export async function getProjectList(
-  category?: string,
-): Promise<ProjectInfo[]> {
+export async function getProjectList(): Promise<ProjectInfo[]> {
   const projectPaths = await glob('**/*.mdx', {cwd: PROJECTS_PATH})
 
   return projectPaths
     .map(projectPath => {
-      const category = path.dirname(projectPath)
       const slug = path.basename(projectPath).replace(/\.mdx$/, '')
       const source = readFileSync(path.join(PROJECTS_PATH, projectPath), 'utf8')
       const {data: frontmatter} = matter(source)
 
       return {
-        path: `${category}/${slug}`,
-        category: category,
-        slug,
+        path: slug,
         frontmatter: frontmatter as ProjectFrontmatter,
       }
     })
     .filter(project => !project.frontmatter.draft)
-    .filter(project => !category || project.category === category)
     .sort(
       (a, b) =>
         new Date(b.frontmatter.startDate).getTime() -
@@ -79,16 +71,12 @@ export async function getProjectList(
  * Get project detail (frontmatter + rendered content)
  */
 export async function getProjectDetail(slug: string): Promise<Project> {
-  const decodedSlug = decodeURIComponent(slug)
-  const category = path.dirname(decodedSlug)
-  const projectPath = path.join(PROJECTS_PATH, decodedSlug + '.mdx')
+  const projectPath = path.join(PROJECTS_PATH, slug + '.mdx')
   const source = readFileSync(projectPath, 'utf8')
   const {data: frontmatter, content} = matter(source)
 
   return {
-    path: decodedSlug,
-    category,
-    slug: path.basename(decodedSlug),
+    path: slug,
     frontmatter: frontmatter as ProjectFrontmatter,
     content,
   }
