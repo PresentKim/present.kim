@@ -243,10 +243,18 @@ html::selection {
   table {
     @apply my-2 block w-full border-collapse overflow-x-auto;
 
+    thead,
+    tbody {
+      @apply w-full;
+    }
+
     th,
     td {
-      @apply border-border border px-2 py-1;
+      @apply border-border border px-2 py-1 break-keep;
     }
+  }
+  table + p:has(em) {
+    @apply mx-auto mt-0 block w-full text-center text-xs;
   }
 
   img {
