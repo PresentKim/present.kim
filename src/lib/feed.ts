@@ -7,6 +7,7 @@ import {
   ownerEmail,
 } from '@/lib/metadata'
 import {getPostList} from './content/posts'
+import {getProjectList} from './content/projects'
 
 export async function getFeed() {
   const feed = new Feed({
@@ -34,7 +35,7 @@ export async function getFeed() {
   const posts = await getPostList()
 
   posts.forEach(post => {
-    const url = `${siteDomain}/posts/${post.slug}`
+    const url = `${siteDomain}/posts/${post.path}`
     feed.addItem({
       title: post.frontmatter.title,
       id: url,
@@ -51,6 +52,30 @@ export async function getFeed() {
       date: new Date(post.frontmatter.date),
       ...(post.frontmatter.tags && {
         category: post.frontmatter.tags.map(tag => ({name: tag})),
+      }),
+    })
+  })
+
+  const projects = await getProjectList()
+  projects.forEach(project => {
+    const url = `${siteDomain}/projects/${project.path}`
+    feed.addItem({
+      title: project.frontmatter.title,
+      id: url,
+      link: url,
+      description: project.frontmatter.summary,
+      content: project.frontmatter.summary,
+
+      author: [
+        {
+          name: ownerName.en,
+          email: ownerEmail,
+          link: siteDomain,
+        },
+      ],
+      date: new Date(project.frontmatter.startDate),
+      ...(project.frontmatter.techStack && {
+        category: project.frontmatter.techStack.map(tech => ({name: tech})),
       }),
     })
   })
