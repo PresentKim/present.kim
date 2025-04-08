@@ -29,12 +29,18 @@ export function PostCard({
   return (
     <Link
       href={`/posts/${slug}`}
-      className={cn('group flex overflow-hidden', className)}
+      className={cn(
+        'group flex overflow-hidden rounded-lg bg-white',
+        'shadow-sm transition-shadow hover:shadow-md',
+        className,
+      )}
       {...props}>
       <div
         aria-label="post-info"
         className="flex h-fit flex-1 flex-col gap-2 p-4">
-        <h2 className="line-clamp-2 text-lg font-semibold">{title}</h2>
+        <h2 className="line-clamp-2 origin-left text-lg font-semibold transition-transform duration-300 group-hover:scale-105">
+          {title}
+        </h2>
         <p className="text-muted-foreground line-clamp-2 flex-1 text-sm">
           {summary}
         </p>
@@ -54,7 +60,7 @@ export function PostCard({
           </span>
         </div>
       </div>
-      <div className="border-card relative aspect-[3/2] h-16 overflow-hidden rounded-lg border transition-all hover:shadow-md md:h-24">
+      <div className="border-card relative aspect-[3/2] h-16 overflow-hidden rounded-lg border md:h-24">
         <Image
           src={thumbnail}
           alt={title}
