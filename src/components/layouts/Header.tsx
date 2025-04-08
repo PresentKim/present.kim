@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import NextTopLoader from 'nextjs-toploader'
 import Logo from '@/components/icon/Logo'
 import FloatingHeader from '@/components/ui/FloatingHeader'
 import {siteName} from '@/lib/metadata'
@@ -10,6 +11,7 @@ export default function Header() {
     <FloatingHeader
       data-slot="header"
       className="border-border/40 bg-background/80 w-full border-b backdrop-blur-lg">
+      <NextTopLoader color="#10b981" showSpinner={false} />
       <nav className="mx-auto max-w-4xl px-4 py-4">
         <div className="flex items-center justify-between">
           <Link
