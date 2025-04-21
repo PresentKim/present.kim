@@ -277,10 +277,16 @@ html::selection {
 
   ol,
   ul {
-    @apply my-4 list-inside [ol_&]:ml-4 [ul_&]:ml-4;
+    @apply my-2 list-inside [ol_&]:ml-4 [ul_&]:ml-4;
 
-    & > li > p {
-      @apply inline-block;
+    & > li {
+      & > p {
+        @apply my-2 inline-block;
+      }
+      & > ul,
+      & > ol {
+        @apply my-0;
+      }
     }
   }
 
