@@ -277,11 +277,19 @@ html::selection {
 
   ol,
   ul {
-    @apply my-4 list-inside list-disc [ol_&]:ml-4 [ul_&]:ml-4;
+    @apply my-4 list-inside [ol_&]:ml-4 [ul_&]:ml-4;
 
     & > li > p {
       @apply inline-block;
     }
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ul {
+    @apply list-disc;
   }
 
   blockquote {
